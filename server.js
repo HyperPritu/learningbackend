@@ -12,7 +12,7 @@
 
 /* ========= Server using ExpressJs ========= */
 const express = require('express');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db'); // Importing the db
 
@@ -26,7 +26,7 @@ const app = express(); // Using this we will create the server
 // 	next();
 // }); // middleware -> a funtion whch runs on every api request
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 // Body Parsing
 app.use(express.json({}));
