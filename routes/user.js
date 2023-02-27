@@ -13,7 +13,7 @@ router.get('/', user_jwt, async (req, res, next) => {
 			success: true,
 			user: user,
 		});
-        res.end("Hello")
+		res.end('Hello');
 	} catch (err) {
 		console.log(err.message);
 		res.status(500).json({
