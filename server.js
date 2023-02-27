@@ -12,7 +12,8 @@
 
 /* ========= Server using ExpressJs ========= */
 const express = require('express');
-// const morgan = require('morgan');
+const colors = require('colors');
+const morgan = require('morgan');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db'); // Importing the db
 
@@ -26,7 +27,7 @@ const app = express(); // Using this we will create the server
 // 	next();
 // }); // middleware -> a funtion whch runs on every api request
 
-// app.use(morgan('dev'));
+app.use(morgan('dev'));
 
 // Body Parsing
 app.use(express.json({}));
@@ -54,4 +55,4 @@ app.use('/api/todo/auth', require('./routes/user')); // Can be accessed using ht
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, console.log(`Server running on port ${PORT}`)); // .red.underline.bold -> colors package | Server listening on port 3000
+app.listen(PORT, console.log(`Server running on port ${PORT}`.red.underline.bold)); // .red.underline.bold -> colors package | Server listening on port 3000
