@@ -71,6 +71,10 @@ router.post('/register', async (req, res, next) => {
 		);
 	} catch (error) {
 		console.log(error);
+		res.status(402).json({
+			success: false,
+			msg: 'Some error occured',
+		});
 	}
 });
 
@@ -83,7 +87,7 @@ router.post('/login', async (req, res, next) => {
 
 		// Check if user registered or not
 		if (!user) {
-			res.status(400).json({
+			return res.status(400).json({
 				success: false,
 				msg: 'User not registered, Please register to continue!',
 			});
