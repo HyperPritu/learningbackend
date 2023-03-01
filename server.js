@@ -41,7 +41,7 @@ dotenv.config({
 	path: './config/config.env',
 }); // Path to ENV file
 
-connectDB();
+// connectDB(); // Always connect mongo then listen
 
 /* Routes (Will be accessed from routes folder) */
 // app.get('/todo', (req, res) => {
@@ -55,4 +55,8 @@ app.use('/api/todo/auth', require('./routes/user')); // Can be accessed using ht
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, console.log(`Server running on port ${PORT}`.red.underline.bold)); // .red.underline.bold -> colors package | Server listening on port 3000
+// Connecting to db then listening on port
+connectDB().then(()=>{
+	app.listen(PORT, console.log(`Server running on port ${PORT}`.red.underline.bold)); // .red.underline.bold -> colors package | Server listening on port 3000
+})
+
