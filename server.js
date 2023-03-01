@@ -52,11 +52,11 @@ dotenv.config({
 // });
 
 app.use('/api/todo/auth', require('./routes/user')); // Can be accessed using http://localhost:3000/api/todo/auth/register
+app.use('/api/todo', require('./routes/todo'));
 
 const PORT = process.env.PORT || 3000;
 
 // Connecting to db then listening on port
-connectDB().then(()=>{
+connectDB().then(() => {
 	app.listen(PORT, console.log(`Server running on port ${PORT}`.red.underline.bold)); // .red.underline.bold -> colors package | Server listening on port 3000
-})
-
+});
